@@ -1,0 +1,72 @@
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="page-layout">
+    <app-chargeur-page
+      visible="{{initialisationEnCours}}"
+      titre="Chargement de la page login"
+      message="Initialisation des services..."
+    />
+
+    <app-barre-navigation
+      titre="Espace login"
+      sous-titre="Exemple simple avec composants réutilisables"
+      afficher-retour="{{false}}"
+    />
+
+    <view class="page-content">
+      <app-carte-section
+        titre="Profil local"
+        sous-titre="Le nom est synchronisé avec l'état global"
+        accentuee="{{true}}"
+      >
+        <text class="page-value">Nom actuel : {{nomActuel}}</text>
+
+        <app-champ-texte
+          label="Nom utilisateur"
+          value="{{inputNom}}"
+          placeholder="Entrez votre nom"
+          effacable="{{true}}"
+          aide="Le composant gère le champ, l'aide et l'effacement."
+          bind:input="handleInputNom"
+        />
+
+        <view class="page-actions">
+          <app-bouton-action
+            texte="Sauvegarder le nom"
+            bind:press="sauvegarderNom"
+          />
+          <app-bouton-action
+            texte="Vider le nom"
+            variante="secondaire"
+            bind:press="viderNom"
+          />
+        </view>
+
+        <app-message-action
+          visible="{{!!message}}"
+          variante="{{messageVariante}}"
+          titre="{{messageTitre}}"
+          message="{{message}}"
+          bind:closetap="fermerMessage"
+        />
+      </app-carte-section>
+
+      <app-carte-section
+        titre="Navigation"
+        sous-titre="Exemple d'utilisation du service de navigation"
+        compacte="{{true}}"
+      >
+        <view class="page-actions">
+          <app-bouton-action
+            texte="Aller vers Index"
+            variante="secondaire"
+            bind:press="allerIndex"
+          />
+          <app-bouton-action
+            texte="Aller vers Home"
+            bind:press="allerHome"
+          />
+        </view>
+      </app-carte-section>
+    </view>
+  </view>
+</scroll-view>

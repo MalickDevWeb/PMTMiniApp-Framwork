@@ -1,0 +1,61 @@
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="page-layout">
+    <app-chargeur-page
+      visible="{{initialisationEnCours}}"
+      titre="Chargement de la page index"
+      message="Initialisation des données..."
+    />
+
+    <app-barre-navigation
+      titre="Page index"
+      sous-titre="Point d'entrée simple du framework"
+      afficher-retour="{{false}}"
+    />
+
+    <view class="page-content">
+      <app-carte-section
+        titre="Etat global"
+        sous-titre="Le nom affiché vient du service profil"
+        accentuee="{{true}}"
+      >
+        <text wx:if="{{nomActuel !== 'Invite'}}" class="page-value">Nom courant : {{nomActuel}}</text>
+        <app-etat-vide
+          wx:else
+          emoji="◌"
+          titre="Aucun nom défini"
+          message="Va sur la page login pour enregistrer un premier nom."
+          texte-action="Aller vers Login"
+          compacte="{{true}}"
+          bind:actiontap="allerLogin"
+        />
+      </app-carte-section>
+
+      <app-carte-section
+        titre="Actions"
+        sous-titre="Navigation et gestion de l'état"
+      >
+        <view class="page-actions">
+          <app-bouton-action
+            texte="Aller vers Login"
+            bind:press="allerLogin"
+          />
+          <app-bouton-action
+            texte="Aller vers Home"
+            variante="secondaire"
+            bind:press="allerHome"
+          />
+          <app-bouton-action
+            texte="Ouvrir la démo framework"
+            variante="secondaire"
+            bind:press="allerDemoFramework"
+          />
+          <app-bouton-action
+            texte="Supprimer le nom"
+            variante="danger"
+            bind:press="supprimerNomDepuisIndex"
+          />
+        </view>
+      </app-carte-section>
+    </view>
+  </view>
+</scroll-view>

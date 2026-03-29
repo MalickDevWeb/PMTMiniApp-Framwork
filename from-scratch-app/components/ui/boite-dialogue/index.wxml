@@ -1,0 +1,47 @@
+<view
+  wx:if="{{ visible }}"
+  class="boite-dialogue-overlay {{ classeOverlay }}"
+  style="background-color: {{ overlayRGBA }};"
+  bindtap="onOverlayTap"
+>
+  <view
+    class="boite-dialogue {{ placement === 'bottom' ? 'boite-dialogue--bottom' : '' }} {{ classeConteneur }}"
+    style="{{ computedStyle }}"
+    catch:tap
+  >
+    <view wx:if="{{ placement === 'bottom' }}" class="boite-dialogue__handle"></view>
+
+    <view wx:if="{{ titre }}" class="boite-dialogue__header">
+      <view class="boite-dialogue__title">{{ titre }}</view>
+    </view>
+    <slot name="header" />
+
+    <view wx:if="{{ message }}" class="boite-dialogue__body">
+      {{ message }}
+    </view>
+    <slot name="content" />
+
+    <view class="boite-dialogue__footer">
+      <slot name="footer" />
+
+      <block wx:if="{{ !loading }}">
+        <button
+          wx:if="{{ afficherActionSecondaire }}"
+          class="boite-dialogue__button boite-dialogue__button--secondaire"
+          bind:tap="handleCancel"
+        >
+          {{ texteActionSecondaire }}
+        </button>
+
+        <button
+          class="boite-dialogue__button boite-dialogue__button--primaire"
+          bind:tap="handleConfirm"
+        >
+          {{ texteActionPrimaire }}
+        </button>
+      </block>
+
+      <view wx:else class="boite-dialogue__loading">Chargement...</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,18 @@
+<view
+  wx:if="{{ visible }}"
+  class="etat-vide {{ compacte ? 'etat-vide--compact' : '' }}"
+>
+  <view wx:if="{{ emoji }}" class="etat-vide__emoji">{{ emoji }}</view>
+  <view wx:if="{{ titre }}" class="etat-vide__titre">{{ titre }}</view>
+  <view wx:if="{{ message }}" class="etat-vide__message">{{ message }}</view>
+
+  <view
+    wx:if="{{ texteAction }}"
+    class="etat-vide__action"
+    bind:tap="handleActionTap"
+  >
+    {{ texteAction }}
+  </view>
+
+  <slot />
+</view>

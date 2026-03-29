@@ -1,0 +1,10 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "app-barre-navigation": "/components/ui/barre-navigation/index",
+    "app-chargeur-page": "/components/ui/chargeur-page/index",
+    "app-carte-section": "/components/ui/carte-section/index",
+    "app-bouton-action": "/components/ui/bouton-action/index",
+    "app-etat-vide": "/components/ui/etat-vide/index"
+  }
+}

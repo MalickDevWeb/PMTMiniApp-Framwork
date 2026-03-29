@@ -1,0 +1,11 @@
+<view
+  wx:if="{{ visible }}"
+  class="chargeur-page {{ pleinEcran ? 'chargeur-page--plein-ecran' : '' }} {{ fondTransparent ? 'chargeur-page--transparent' : '' }}"
+>
+  <view class="chargeur-page__boite {{ compact ? 'chargeur-page__boite--compacte' : '' }}">
+    <view class="chargeur-page__spinner"></view>
+    <view wx:if="{{ titre }}" class="chargeur-page__titre">{{ titre }}</view>
+    <view wx:if="{{ message }}" class="chargeur-page__message">{{ message }}</view>
+    <slot />
+  </view>
+</view>

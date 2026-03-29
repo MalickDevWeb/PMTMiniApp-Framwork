@@ -1,0 +1,127 @@
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="page-layout">
+    <app-chargeur-page
+      visible="{{initialisationEnCours || chargementSimulation}}"
+      titre="Framework en cours d'initialisation"
+      message="Chargement de la démonstration..."
+    />
+
+    <app-barre-navigation
+      titre="Démo framework"
+      sous-titre="Vue d'ensemble des composants et services"
+      afficher-retour="{{true}}"
+    />
+
+    <view class="page-content">
+      <app-message-action
+        visible="{{messageVisible}}"
+        variante="{{messageVariante}}"
+        titre="{{messageTitre}}"
+        message="{{messageTexte}}"
+        fermeture-visible="{{true}}"
+        bind:closetap="fermerMessage"
+      />
+
+      <app-carte-section
+        titre="API publique"
+        sous-titre="Cette page montre la surface d'usage recommandée pour une équipe"
+        accentuee="{{true}}"
+      >
+        <view class="badge-list">
+          <view class="badge-item">navigation</view>
+          <view class="badge-item">state</view>
+          <view class="badge-item">storage</view>
+          <view class="badge-item">auth</view>
+          <view class="badge-item">api-layer</view>
+          <view class="badge-item">components</view>
+        </view>
+      </app-carte-section>
+
+      <app-carte-section
+        titre="Profil courant"
+        sous-titre="Exemple de liaison entre composant, page et service métier"
+      >
+        <text wx:if="{{nomCourant !== 'Invite'}}" class="page-value">Nom courant : {{nomCourant}}</text>
+
+        <app-etat-vide
+          wx:else
+          emoji="◇"
+          titre="Aucun nom enregistré"
+          message="Utilise le champ ci-dessous pour alimenter le service profil."
+          compacte="{{true}}"
+        />
+
+        <view class="page-form">
+          <app-champ-texte
+            nom="nom"
+            label="Nom de démonstration"
+            value="{{nomSaisi}}"
+            placeholder="Exemple : Aicha"
+            aide="Ce champ illustre l’usage du service profil."
+            effacable="{{true}}"
+            bind:input="handleInputNom"
+          />
+        </view>
+
+        <view class="page-actions">
+          <app-bouton-action
+            texte="Sauvegarder le nom"
+            bind:press="sauvegarderNom"
+          />
+          <app-bouton-action
+            texte="Supprimer le nom"
+            variante="danger"
+            bind:press="supprimerNom"
+          />
+        </view>
+      </app-carte-section>
+
+      <app-carte-section
+        titre="Composants utilitaires"
+        sous-titre="Boîte de dialogue, message d'action et chargeur"
+      >
+        <view class="page-actions">
+          <app-bouton-action
+            texte="Simuler un chargement"
+            variante="secondaire"
+            bind:press="simulerChargement"
+          />
+          <app-bouton-action
+            texte="Ouvrir une boîte de dialogue"
+            bind:press="ouvrirDialogue"
+          />
+        </view>
+      </app-carte-section>
+
+      <app-carte-section
+        titre="Navigation"
+        sous-titre="Exemple de navigation vers les écrans principaux"
+        compacte="{{true}}"
+      >
+        <view class="page-actions">
+          <app-bouton-action
+            texte="Aller vers Login"
+            bind:press="allerLogin"
+          />
+          <app-bouton-action
+            texte="Aller vers Home"
+            variante="secondaire"
+            bind:press="allerHome"
+          />
+        </view>
+      </app-carte-section>
+    </view>
+
+    <app-boite-dialogue
+      visible="{{dialogueVisible}}"
+      titre="Boîte de dialogue"
+      message="Ce composant fait partie de l'API UI du framework."
+      afficher-action-secondaire="{{true}}"
+      texte-action-primaire="Confirmer"
+      texte-action-secondaire="Fermer"
+      bind:confirm="confirmerDialogue"
+      bind:cancel="fermerDialogue"
+      bind:close="fermerDialogue"
+    />
+  </view>
+</scroll-view>

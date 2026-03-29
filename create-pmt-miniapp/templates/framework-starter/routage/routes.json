@@ -1,0 +1,9 @@
+{
+  "pageEntree": "login",
+  "routes": {
+    "login": "pages/login/login",
+    "index": "pages/index/index",
+    "home": "pages/home/home",
+    "frameworkDemo": "pages/framework-demo/framework-demo"
+  }
+}

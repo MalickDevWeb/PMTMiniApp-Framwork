@@ -1,0 +1,27 @@
+<view
+  wx:if="{{ visible }}"
+  class="message-action message-action--{{ variante }} {{ compacte ? 'message-action--compacte' : '' }}"
+>
+  <view class="message-action__contenu">
+    <view wx:if="{{ titre }}" class="message-action__titre">{{ titre }}</view>
+    <view wx:if="{{ message }}" class="message-action__texte">{{ message }}</view>
+  </view>
+
+  <view class="message-action__actions">
+    <view
+      wx:if="{{ texteAction }}"
+      class="message-action__action"
+      bind:tap="handleActionTap"
+    >
+      {{ texteAction }}
+    </view>
+
+    <view
+      wx:if="{{ fermetureVisible }}"
+      class="message-action__fermeture"
+      bind:tap="handleCloseTap"
+    >
+      Fermer
+    </view>
+  </view>
+</view>

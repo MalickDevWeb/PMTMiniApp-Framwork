@@ -1,0 +1,28 @@
+/*
+ * Eslint config file
+ * Documentation: https://eslint.org/docs/user-guide/configuring/
+ * Install the Eslint extension before using this feature.
+ */
+module.exports = {
+  env: {
+    browser: true,
+    node: true,
+    es2020: true,
+  },
+  parserOptions: {
+    ecmaVersion: 2020,
+    sourceType: 'module',
+  },
+  globals: {
+    wx: true,
+    App: true,
+    Page: true,
+    getCurrentPages: true,
+    getApp: true,
+    Component: true,
+    requirePlugin: true,
+    requireMiniProgram: true,
+  },
+  // extends: 'eslint:recommended',
+  rules: {},
+}

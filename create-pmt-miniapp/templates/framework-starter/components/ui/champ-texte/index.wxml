@@ -1,0 +1,38 @@
+<view class="champ-texte {{ classeConteneur }}">
+  <view wx:if="{{ label }}" class="champ-texte__label">
+    {{ label }}
+    <text wx:if="{{ requis }}" class="champ-texte__required">*</text>
+  </view>
+
+  <view class="champ-texte__controle {{ erreur ? 'champ-texte__controle--erreur' : '' }} {{ disabled ? 'champ-texte__controle--disabled' : '' }}">
+    <input
+      class="champ-texte__input"
+      value="{{value}}"
+      placeholder="{{placeholder}}"
+      type="{{type}}"
+      disabled="{{disabled}}"
+      password="{{motDePasse}}"
+      maxlength="{{maxlength}}"
+      confirm-type="{{confirmType}}"
+      bindinput="handleInput"
+      bindconfirm="handleConfirm"
+      bindblur="handleBlur"
+      bindfocus="handleFocus"
+    />
+
+    <view
+      wx:if="{{ effacable && value && !disabled }}"
+      class="champ-texte__clear"
+      bind:tap="handleClear"
+    >
+      Effacer
+    </view>
+  </view>
+
+  <view wx:if="{{ erreur }}" class="champ-texte__message champ-texte__message--erreur">
+    {{ erreur }}
+  </view>
+  <view wx:elif="{{ aide }}" class="champ-texte__message">
+    {{ aide }}
+  </view>
+</view>

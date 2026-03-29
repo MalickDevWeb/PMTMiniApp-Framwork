@@ -1,0 +1,21 @@
+<view
+  class="barre-navigation {{ transparent ? 'barre-navigation--transparent' : '' }}"
+  style="padding-top: {{ statusBarHeight }}px; background: {{ couleurFond }};"
+>
+  <view class="barre-navigation__contenu" style="height: {{ navHeight }}px;">
+    <view wx:if="{{ afficherRetour }}" class="barre-navigation__retour" bind:tap="handleBackTap">
+      <text class="barre-navigation__retour-icone" style="color: {{ couleurTexte }};">&#x2039;</text>
+    </view>
+    <view class="barre-navigation__titres">
+      <view wx:if="{{ titre }}" class="barre-navigation__titre" style="color: {{ couleurTexte }};">
+        {{ titre }}
+      </view>
+      <view wx:if="{{ sousTitre }}" class="barre-navigation__soustitre">
+        {{ sousTitre }}
+      </view>
+    </view>
+    <view class="barre-navigation__actions">
+      <slot name="actions" />
+    </view>
+  </view>
+</view>

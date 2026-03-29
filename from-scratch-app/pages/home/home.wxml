@@ -1,0 +1,57 @@
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="page-layout">
+    <app-chargeur-page
+      visible="{{initialisationEnCours}}"
+      titre="Chargement de la page home"
+      message="Préparation de l'écran..."
+    />
+
+    <app-barre-navigation
+      titre="Page home"
+      sous-titre="Exemple d'écran avec composants de base"
+      afficher-retour="{{false}}"
+      transparent="{{false}}"
+    />
+
+    <view class="page-content">
+      <app-carte-section
+        titre="Bienvenue"
+        sous-titre="Le framework peut maintenant proposer une base UI claire"
+        accentuee="{{true}}"
+      >
+        <text wx:if="{{nomActuel !== 'Invite'}}" class="page-value">Nom courant : {{nomActuel}}</text>
+        <app-etat-vide
+          wx:else
+          emoji="⌁"
+          titre="Profil encore vide"
+          message="Aucun nom n'est encore synchronisé dans l'application."
+          texte-action="Configurer le profil"
+          compacte="{{true}}"
+          bind:actiontap="allerLogin"
+        />
+      </app-carte-section>
+
+      <app-carte-section
+        titre="Navigation rapide"
+        compacte="{{true}}"
+      >
+        <view class="page-actions">
+          <app-bouton-action
+            texte="Aller vers Login"
+            bind:press="allerLogin"
+          />
+          <app-bouton-action
+            texte="Aller vers Index"
+            variante="secondaire"
+            bind:press="allerIndex"
+          />
+          <app-bouton-action
+            texte="Ouvrir la démo framework"
+            variante="secondaire"
+            bind:press="allerDemoFramework"
+          />
+        </view>
+      </app-carte-section>
+    </view>
+  </view>
+</scroll-view>

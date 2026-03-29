@@ -1,0 +1,52 @@
+name: PMTMiniApp CI
+
+on:
+  push:
+    paths:
+      - '.github/workflows/pmtminiapp-ci.yml'
+      - 'from-scratch-app/**'
+      - 'create-pmt-miniapp/**'
+  pull_request:
+    paths:
+      - '.github/workflows/pmtminiapp-ci.yml'
+      - 'from-scratch-app/**'
+      - 'create-pmt-miniapp/**'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: [18, 20]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Validate starter framework
+        working-directory: from-scratch-app
+        run: |
+          npm install
+          npm run framework:ready
+
+      - name: Validate CLI package
+        working-directory: create-pmt-miniapp
+        run: |
+          npm install
+          npm run lint
+          npm run refresh:template
+
+      - name: Smoke test generated project
+        run: |
+          mkdir -p "$RUNNER_TEMP/pmtminiapp-smoke"
+          cd "$RUNNER_TEMP/pmtminiapp-smoke"
+          node "$GITHUB_WORKSPACE/create-pmt-miniapp/bin/cli.js" demo-app --no-install
+          cd demo-app
+          npm install
+          npm run framework:ready

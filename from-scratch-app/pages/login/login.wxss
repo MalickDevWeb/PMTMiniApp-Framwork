@@ -1,0 +1,41 @@
+page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f4f7fb;
+}
+
+.scrollarea {
+  flex: 1;
+  overflow-y: hidden;
+}
+
+.page-layout {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24rpx;
+  padding: 24rpx;
+  box-sizing: border-box;
+}
+
+.page-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.page-value {
+  font-size: 28rpx;
+  color: #22324a;
+}
+
+.page-message {
+  font-size: 24rpx;
+  color: #085ebd;
+}

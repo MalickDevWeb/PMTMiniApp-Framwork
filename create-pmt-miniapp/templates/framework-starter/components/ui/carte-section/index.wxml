@@ -1,0 +1,19 @@
+<view class="carte-section {{ compacte ? 'carte-section--compacte' : '' }} {{ accentuee ? 'carte-section--accentuee' : '' }} {{ classeConteneur }}">
+  <view wx:if="{{ titre || sousTitre || texteAction }}" class="carte-section__entete">
+    <view class="carte-section__titres">
+      <view wx:if="{{ titre }}" class="carte-section__titre">{{ titre }}</view>
+      <view wx:if="{{ sousTitre }}" class="carte-section__soustitre">{{ sousTitre }}</view>
+    </view>
+
+    <view class="carte-section__actions">
+      <view wx:if="{{ texteAction }}" class="carte-section__action-texte" bind:tap="handleActionTap">
+        {{ texteAction }}
+      </view>
+      <slot name="actions" />
+    </view>
+  </view>
+
+  <view class="carte-section__contenu">
+    <slot />
+  </view>
+</view>

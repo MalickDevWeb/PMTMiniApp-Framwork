@@ -1,0 +1,23 @@
+{
+  "name": "pmtminiapp-starter",
+  "version": "1.0.1",
+  "private": true,
+  "description": "PMTMiniApp starter Mini Program WeChat structuré autour d'un noyau, d'un état global, d'un storage, d'une auth, d'un api-layer et de composants UI réutilisables.",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "check": "npm run check:navigation && npm run check:etat && npm run check:storage && npm run check:api",
+    "check:api": "node --test tests/service-api.test.js tests/auth-api-client.test.js",
+    "check:etat": "node --test tests/gestionnaire-etat.test.js tests/profil-service.test.js tests/utilisateur-service.test.js tests/compte-service.test.js tests/auth-service.test.js",
+    "check:navigation": "node scripts/checkNavigation.js",
+    "check:storage": "node --test tests/storage-service.test.js tests/session-storage-service.test.js tests/profil-storage-service.test.js tests/restauration-storage-service.test.js tests/session-service.test.js",
+    "doctor": "npm run doctor:navigation",
+    "doctor:navigation": "node scripts/doctorNavigation.js",
+    "framework:ready": "npm run sync:pages && npm run doctor && npm run check",
+    "sync": "npm run sync:pages",
+    "sync:pages": "node scripts/syncAppPages.js",
+    "sync:pages:watch": "node scripts/syncAppPages.js --watch"
+  }
+}

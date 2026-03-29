@@ -1,0 +1,65 @@
+.carte-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 28rpx;
+  border-radius: 24rpx;
+  background: #fff;
+  border: 2rpx solid #e7edf5;
+  box-shadow: 0 12rpx 32rpx rgba(19, 43, 77, 0.08);
+}
+
+.carte-section--compacte {
+  padding: 20rpx;
+  border-radius: 18rpx;
+}
+
+.carte-section--accentuee {
+  border-color: #b9d2f1;
+  box-shadow: 0 14rpx 36rpx rgba(8, 94, 189, 0.12);
+}
+
+.carte-section__entete {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20rpx;
+}
+
+.carte-section__titres {
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+}
+
+.carte-section__titre {
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #14253d;
+}
+
+.carte-section__soustitre {
+  font-size: 24rpx;
+  color: #5f6f86;
+  line-height: 1.5;
+}
+
+.carte-section__actions {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+}
+
+.carte-section__action-texte {
+  font-size: 24rpx;
+  font-weight: 600;
+  color: #085ebd;
+}
+
+.carte-section__contenu {
+  display: flex;
+  flex-direction: column;
+  gap: 18rpx;
+}

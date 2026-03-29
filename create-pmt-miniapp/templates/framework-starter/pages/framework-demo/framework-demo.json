@@ -1,0 +1,13 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "app-barre-navigation": "/components/ui/barre-navigation/index",
+    "app-chargeur-page": "/components/ui/chargeur-page/index",
+    "app-carte-section": "/components/ui/carte-section/index",
+    "app-champ-texte": "/components/ui/champ-texte/index",
+    "app-bouton-action": "/components/ui/bouton-action/index",
+    "app-message-action": "/components/ui/message-action/index",
+    "app-etat-vide": "/components/ui/etat-vide/index",
+    "app-boite-dialogue": "/components/ui/boite-dialogue/index"
+  }
+}

@@ -1,0 +1,16 @@
+<button
+  disabled="{{ disabled || loading }}"
+  class="bouton-action bouton-action--{{ variante }} bouton-action--{{ taille }} {{ pleinLargeur ? 'bouton-action--plein' : '' }} {{ disabled || loading ? 'bouton-action--disabled' : '' }} {{ pressed ? 'bouton-action--pressed' : '' }}"
+  bind:tap="handlePress"
+  bind:touchstart="handleTouchStart"
+  bind:touchend="handleTouchEnd"
+  bind:touchcancel="handleTouchEnd"
+>
+  <view wx:if="{{ loading }}" class="bouton-action__contenu">
+    <view class="bouton-action__spinner"></view>
+    <block wx:if="{{ texte }}">{{ texte }}</block>
+    <slot wx:else />
+  </view>
+  <block wx:elif="{{ texte }}">{{ texte }}</block>
+  <slot wx:else />
+</button>

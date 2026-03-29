@@ -1,0 +1,100 @@
+.bouton-action {
+  margin: 0;
+  padding: 0 28rpx;
+  line-height: normal;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 16rpx;
+  font-size: 28rpx;
+  font-weight: 700;
+  letter-spacing: 0.5rpx;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.15s ease-out,
+              box-shadow 0.15s ease-out,
+              opacity 0.15s ease-out,
+              background-color 0.15s ease-out;
+}
+
+.bouton-action--plein {
+  width: 100%;
+}
+
+.bouton-action--petit {
+  min-height: 72rpx;
+  padding-top: 14rpx;
+  padding-bottom: 14rpx;
+  font-size: 24rpx;
+}
+
+.bouton-action--moyen {
+  min-height: 88rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+
+.bouton-action--grand {
+  min-height: 104rpx;
+  padding-top: 24rpx;
+  padding-bottom: 24rpx;
+  font-size: 30rpx;
+}
+
+.bouton-action--primaire {
+  background: #085ebd;
+  color: #fff;
+  box-shadow: 0 8rpx 18rpx rgba(8, 94, 189, 0.2);
+}
+
+.bouton-action--secondaire {
+  background: #fff;
+  color: #22324a;
+  border: 2rpx solid #d7e1ee;
+}
+
+.bouton-action--danger {
+  background: #c9372c;
+  color: #fff;
+  box-shadow: 0 8rpx 18rpx rgba(201, 55, 44, 0.18);
+}
+
+.bouton-action--pressed {
+  transform: scale(0.97);
+  box-shadow: 0 2rpx 6rpx rgba(0, 0, 0, 0.1);
+}
+
+.bouton-action--disabled {
+  opacity: 0.5;
+  box-shadow: none;
+}
+
+.bouton-action__contenu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12rpx;
+}
+
+.bouton-action__spinner {
+  width: 32rpx;
+  height: 32rpx;
+  border: 4rpx solid rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+.bouton-action--secondaire .bouton-action__spinner {
+  border-color: rgba(34, 50, 74, 0.16);
+  border-top-color: #22324a;
+}
+
+.bouton-action--danger .bouton-action__spinner {
+  border-color: rgba(0, 0, 0, 0.15);
+  border-top-color: #fff;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
