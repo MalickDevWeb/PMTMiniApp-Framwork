@@ -1,4 +1,4 @@
-# PMTMiniApp Framwork
+# PMTMiniApp-Framwork
 
 Ce depot contient deux briques principales :
 
