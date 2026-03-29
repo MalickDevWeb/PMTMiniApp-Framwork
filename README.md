@@ -1,6 +1,6 @@
 # PMTMiniApp-Framwork
 
-![PMTMiniApp Dev Tools](assets/pmtminiapp-dev-tools.png)
+![Latest WeChat DevTools Linux](assets/wechat-devtools-latest.png)
 
 Ce depot contient deux briques principales :
 
