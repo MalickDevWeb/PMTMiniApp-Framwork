@@ -1,5 +1,7 @@
 # PMTMiniApp-Framwork
 
+![PMTMiniApp Dev Tools](assets/pmtminiapp-dev-tools.png)
+
 Ce depot contient deux briques principales :
 
 - `from-scratch-app` : framework mini-app de base
@@ -7,8 +9,8 @@ Ce depot contient deux briques principales :
 
 ## Structure
 
-- [create-pmt-miniapp](/home/pmt/WeChatProjects/Mes_document/documentation/create-pmt-miniapp)
-- [from-scratch-app](/home/pmt/WeChatProjects/Mes_document/documentation/from-scratch-app)
+- [create-pmt-miniapp](create-pmt-miniapp)
+- [from-scratch-app](from-scratch-app)
 
 ## CI
 
